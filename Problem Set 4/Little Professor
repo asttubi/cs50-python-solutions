@@ -1,0 +1,66 @@
+import random
+
+
+def main():
+
+    count=0
+    k=0
+    level=get_level()
+    while k<10:
+        X,Y=generate_integer(level)
+        i=0
+        try:
+            while i<4:
+                if i==3:
+                    print(f"{X} + {Y} =", X+Y)
+                    count+=1
+                    break
+                else:
+                    try:
+
+                        if X+Y!=int(input(f"{X} + {Y} = ")):
+                            
+                            raise Exception
+                        else:
+                            break
+                    except Exception:
+
+                        print("EEE")
+                        i+=1
+                        pass
+        except ValueError:
+            pass
+
+        k+=1
+    print("Score:", 10-count)
+
+def get_level():
+    while True:
+        try:
+            level=int(input("Level: "))
+            if level not in [1,2,3]:
+                raise ValueError
+        except ValueError:
+            pass
+        else:
+            return level
+            break
+
+def generate_integer(level):
+    if level==1:
+        X=random.randint(0,9)
+        Y=random.randint(0,9)
+        return X,Y
+
+    elif level==2:
+        X=random.randint(10,99)
+        Y=random.randint(10,99)
+        return X,Y
+
+    elif level==3:
+        X=random.randint(100,999)
+        Y=random.randint(100,999)
+        return X,Y
+
+if __name__ == "__main__":
+    main()
