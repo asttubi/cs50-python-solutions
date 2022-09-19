@@ -1,0 +1,23 @@
+import random
+
+def files(a):
+    while True:
+        guess=int(input("Guess: "))
+        if guess>0 and guess==a:
+            print("Just right!")
+            break
+        elif guess>0 and guess>a:
+            print("Too large!")
+
+        elif guess>0 and guess<a:
+            print("Too small!")
+
+while True:
+    try:
+        n=int(input("Level: "))
+        if n>0:
+            number=random.randint(1,n)
+            files(number)
+            break
+    except ValueError:
+        pass
