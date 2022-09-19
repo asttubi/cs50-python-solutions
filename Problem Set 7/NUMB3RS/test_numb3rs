@@ -1,0 +1,15 @@
+import pytest
+from numb3rs import validate
+
+def test_format():
+    assert validate(r"cat")==False
+    assert validate(r"127.0.0.1")==True
+    assert validate(r"10.1")==False
+    assert validate(r"10.1.1")==False
+    assert validate(r"1")==False
+
+def test_range():
+    assert validate(r"512.512.512.512")==False
+    assert validate(r"1.2.3.450")==False
+    assert validate(r"255.255.255.255")==True
+    assert validate(r"1.2.3.1000")==False
