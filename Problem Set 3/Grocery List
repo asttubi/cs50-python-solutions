@@ -1,0 +1,17 @@
+menu=[]
+
+while True:
+
+    try:
+        item=input().upper()
+    except EOFError:
+        break
+    else:
+        menu.append(item)
+
+menu=sorted(menu)
+c={}
+for i in menu:
+    c[i]=menu.count(i)
+for i,k in c.items():
+    print(k,i)
