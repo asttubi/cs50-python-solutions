@@ -1,0 +1,11 @@
+case=list(input("enter camel case: "))
+n=[]
+
+for i in range(len(case)):
+    if case[i]==case[i].upper():
+        n.insert(len(n), "_")
+        n.insert(len(n), case[i].lower())
+
+    else:
+        n.insert(len(n), case[i])
+print("".join(n))
