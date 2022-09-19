@@ -1,0 +1,13 @@
+from bank import value
+
+def test_zero():
+    assert value("hello")==0
+    assert value("Hello sir")==0
+
+def test_20():
+    assert value("hi, senyor")==20
+    assert value("HEY YOU!")==20
+
+def test_100():
+    assert value("Good Morning")==100
+    assert value("what's up")==100
