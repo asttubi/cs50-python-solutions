@@ -1,0 +1,12 @@
+from twttr import shorten
+def test_lowercase():
+    assert shorten("twitter")=="twttr"
+    assert shorten("yeap!")=="yp!"
+
+def test_uppercase():
+    assert shorten("CS50")=="CS50"
+    assert shorten("THE OFFICE")=="TH FFC"
+
+
+def test_numbers():
+    assert shorten("2022")=="2022"
