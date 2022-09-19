@@ -1,0 +1,15 @@
+def main():
+    hour=input("enter hour: ")
+    hour_float=float(hour.replace(":", "."))
+    convert(hour_float)
+
+def convert(time):
+    if 7<=time<=8:
+        print("breakfast time")
+    elif 12.00<=time<=13.00:
+        print("lunch time")
+    elif 18.00<=time<=19.00:
+        print("dinner time")
+
+if __name__ == "__main__":
+    main()
