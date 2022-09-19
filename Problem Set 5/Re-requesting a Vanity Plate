@@ -1,0 +1,23 @@
+from plates import is_valid
+
+def test_two_letter():
+    assert is_valid("AB1024")==True
+    assert is_valid("12685")==False
+
+
+def test_between():
+    assert is_valid("CS50")==True
+    assert is_valid("P")==False
+
+def test_no_number_middle():
+    assert is_valid("AAA22")==True
+    assert is_valid("12TUB")==False
+    assert is_valid("CS50P")==False
+
+def test_zero_replacement():
+    assert is_valid("CS05")==False
+
+def test_no_punc():
+    assert is_valid("DENVER")==True
+    assert is_valid("PI3.14")==False
+    assert is_valid("CS 50")==False
