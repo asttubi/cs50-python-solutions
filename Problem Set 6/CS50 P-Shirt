@@ -1,0 +1,22 @@
+import sys
+from PIL import Image, ImageOps
+
+#check the command-line arguments
+if len(sys.argv)<3:
+    sys.exit("Too few command-line arguments")
+elif len(sys.argv)>3:
+    sys.exit("Too many command-line arguments")
+elif ".jpeg" not in sys.argv[1].lower() and ".jpg" not in sys.argv[1].lower() and ".png" not in sys.argv[1].lower():
+    sys.exit("Invalid input")
+elif sys.argv[1][(len(sys.argv[1])-4):len(sys.argv[1])]!=sys.argv[2][(len(sys.argv[2])-4):len(sys.argv[2])]:
+    sys.exit("Input and output have different extensions")
+
+#open the image
+try:
+    im2=Image.open(sys.argv[1])
+except FileNotFoundError:
+    pass
+shirt=Image.open("shirt.png")
+im2=ImageOps.fit(im2, shirt.size)
+im2.paste(shirt, shirt)
+im2.save(sys.argv[2])
