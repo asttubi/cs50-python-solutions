@@ -1,0 +1,2 @@
+word=input("enter something: ")
+print(word.lower())
