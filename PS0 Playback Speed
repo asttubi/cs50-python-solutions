@@ -1,3 +1,0 @@
-word=input("enter something: ")
-slow=word.replace(" ", "...")
-print(slow)
