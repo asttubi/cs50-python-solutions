@@ -1,0 +1,12 @@
+from datetime import date
+from seasons import sub_date, get_date
+import pytest
+import sys
+
+def test_1():
+    assert get_date(sub_date("1998-06-20"), date(2000,1,1))=="Eight hundred six thousand, four hundred minutes"
+    assert get_date(sub_date("2020-06-01"), date(2032,1,1))=="Six million, ninety-two thousand, six hundred forty minutes"
+
+def test_2():
+    with pytest.raises(SystemExit):
+        sub_date("1998/06/20")
