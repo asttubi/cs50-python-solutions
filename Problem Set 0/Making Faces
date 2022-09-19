@@ -1,0 +1,8 @@
+def main():
+    convert()
+def convert():
+    text=input("enter something: ")
+    text_1=text.replace(":)", "🙂")
+    text_2=text_1.replace(":(", "🙁")
+    print( text_2)
+main()
