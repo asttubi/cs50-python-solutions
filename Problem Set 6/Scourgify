@@ -1,0 +1,28 @@
+import sys
+import csv
+
+#check the quantity of command-line arguments and a csv file
+if len(sys.argv)<3:
+    sys.exit("Too few command-line arguments")
+elif len(sys.argv)>3:
+    sys.exit("Too many command-line arguments")
+
+#check the file existence and create a list with keys as first, last, house
+try:
+    student_list=[]
+    with open(sys.argv[1]) as file:
+        reader=csv.DictReader(file)
+        for row in reader:
+            last,first=row["name"].split(",")
+            student_list.append({"first":first.lstrip(), "last":last, "house":row["house"]})
+
+except FileNotFoundError:
+    sys.exit(f"Could not read {sys.argv[1]}")
+
+#write a new file
+
+with open(sys.argv[2], "w") as file:
+    writer=csv.DictWriter(file, fieldnames=["first", "last", "house"])
+    writer.writeheader()
+    for row in student_list:
+        writer.writerow(row)
